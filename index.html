@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <title>book anim</title>
+  </head>
+
+  <body>
+    <div class="flipbook">
+      <div>
+        <img
+          src="https://nsventures.online/Sampoornam_Brochures/files/mobile/1.jpg?230517180842"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://nsventures.online/Sampoornam_Brochures/files/mobile/2.jpg?230517180842"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://nsventures.online/Sampoornam_Brochures/files/mobile/3.jpg?230517180842"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://nsventures.online/Sampoornam_Brochures/files/mobile/1.jpg?230517180842"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://nsventures.online/Sampoornam_Brochures/files/mobile/3.jpg?230517180842"
+          alt=""
+        />
+      </div>
+    </div>
+    <button class="left-btn"><i class="fas fa-chevron-left"></i></button>
+    <button class="right-btn"><i class="fas fa-chevron-right"></i></button>
+
+    <script src="jquery.js"></script>
+    <script src="turn.js"></script>
+    <script>
+      $(document).ready(function () {
+        var flipbook = $(".flipbook");
+
+        // Initialize the flipbook
+        flipbook.turn();
+
+        // Bind left button to flip to the previous page
+        $(".left-btn").click(function () {
+          flipbook.turn("previous");
+        });
+
+        // Bind right button to flip to the next page
+        $(".right-btn").click(function () {
+          flipbook.turn("next");
+        });
+
+        // Prevent default page turn on swipe or click
+        flipbook.on("click", function (e) {
+          e.preventDefault();
+        });
+
+        flipbook.on("swipe", function (e) {
+          e.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
